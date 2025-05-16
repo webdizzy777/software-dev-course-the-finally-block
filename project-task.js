@@ -45,18 +45,29 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
-    
+    if (!fileName) {
+      throw new Error("\nFile name must exist");
+    }
+    if (typeof fileData !== "string") {
+      throw new Error("\nFile data must be text");
+    }
+    if (!fileData) {
+      throw new Error("\nFile data must exist");
+    }
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
-    
+
     // TODO: Add simulated file operations (reading/writing)
-    
+    console.log(`\tReading data...`);
+    console.log(`\tWriting data...`);
   } catch (err) {
     // TODO: Implement error handling
-    console.error(err);
+    console.error(`${err.name}: ${err.message}`);
+  } finally {
+    // TODO: Implement a finally block to close resources
+    console.log("\n***Process complete!***");
   }
-  // TODO: Implement a finally block to close resources
 }
 
 // ============================================
